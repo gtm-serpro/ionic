@@ -1,26 +1,16 @@
-import { Component, inject } from '@angular/core';
-import { RefresherCustomEvent } from '@ionic/angular';
-import { MessageComponent } from '../message/message.component';
-
-import { DataService, Message } from '../services/data.service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  standalone: false,
+  standalone: false
 })
 export class HomePage {
-  private data = inject(DataService);
-  constructor() {}
+  constructor(private router: Router) {}
 
-  refresh(ev: any) {
-    setTimeout(() => {
-      (ev as RefresherCustomEvent).detail.complete();
-    }, 3000);
-  }
-
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  goToShowcase() {
+    this.router.navigate(['/components-showcase']);
   }
 }

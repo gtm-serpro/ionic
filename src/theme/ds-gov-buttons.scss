@@ -1,0 +1,322 @@
+/**
+ * Botões DS Gov - Design System do Governo Federal
+ * 
+ * Hierarquia de Ênfase:
+ * - Primary (Alta ênfase): Ação principal da tela/página
+ * - Secondary (Média ênfase): Ações secundárias ou alternativas  
+ * - Tertiary (Baixa ênfase): Ações terciárias, menos importantes
+ */
+
+/* === BOTÃO BASE === */
+ion-button {
+  --border-radius: 100px; /* Botões arredondados (capsule) */
+  --padding-start: 24px;
+  --padding-end: 24px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  
+  font-family: 'Rawline', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: none;
+  letter-spacing: 0;
+  
+  min-height: 48px; /* Acessibilidade - área de toque mínima */
+  
+  /* Transições suaves */
+  transition: all 0.2s ease-in-out;
+  
+  /* Remove sombra padrão do Ionic */
+  --box-shadow: none;
+}
+
+/* === BOTÃO PRIMÁRIO (Alta Ênfase) === */
+/* Usado para ação principal da página */
+ion-button.button-primary,
+ion-button[color="primary"] {
+  --background: var(--govbr-blue-warm-vivid-70);
+  --background-hover: var(--govbr-blue-warm-vivid-80);
+  --background-activated: #0C326F;
+  --background-focused: var(--govbr-blue-warm-vivid-70);
+  
+  --color: var(--govbr-pure-0);
+  --color-hover: var(--govbr-pure-0);
+  --color-activated: var(--govbr-pure-0);
+  --color-focused: var(--govbr-pure-0);
+  
+  --border-width: 2px;
+  --border-style: solid;
+  --border-color: var(--govbr-blue-warm-vivid-70);
+  
+  /* Estado focus - contorno azul */
+  &:focus {
+    outline: 2px solid var(--govbr-blue-warm-vivid-70);
+    outline-offset: 4px;
+  }
+  
+  /* Estado hover */
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(19, 81, 180, 0.3);
+  }
+  
+  /* Estado disabled */
+  &:disabled {
+    --background: var(--govbr-gray-20);
+    --color: var(--govbr-gray-60);
+    --border-color: var(--govbr-gray-20);
+    opacity: 1;
+    cursor: not-allowed;
+  }
+}
+
+/* === BOTÃO SECUNDÁRIO (Média Ênfase) === */
+/* Usado para ações secundárias ou alternativas */
+ion-button.button-secondary,
+ion-button[fill="outline"] {
+  --background: transparent;
+  --background-hover: var(--govbr-blue-warm-20);
+  --background-activated: var(--govbr-blue-warm-20);
+  --background-focused: transparent;
+  
+  --color: var(--govbr-blue-warm-vivid-70);
+  --color-hover: var(--govbr-blue-warm-vivid-80);
+  --color-activated: var(--govbr-blue-warm-vivid-80);
+  --color-focused: var(--govbr-blue-warm-vivid-70);
+  
+  --border-width: 2px;
+  --border-style: solid;
+  --border-color: var(--govbr-blue-warm-vivid-70);
+  
+  /* Estado focus */
+  &:focus {
+    outline: 2px solid var(--govbr-blue-warm-vivid-70);
+    outline-offset: 4px;
+  }
+  
+  /* Estado hover */
+  &:hover:not(:disabled) {
+    --border-color: var(--govbr-blue-warm-vivid-80);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(19, 81, 180, 0.2);
+  }
+  
+  /* Estado disabled */
+  &:disabled {
+    --background: transparent;
+    --color: var(--govbr-gray-60);
+    --border-color: var(--govbr-gray-20);
+    opacity: 1;
+    cursor: not-allowed;
+  }
+}
+
+/* === BOTÃO TERCIÁRIO (Baixa Ênfase) === */
+/* Usado para ações menos importantes */
+ion-button.button-tertiary,
+ion-button[fill="clear"] {
+  --background: transparent;
+  --background-hover: var(--govbr-blue-warm-20);
+  --background-activated: var(--govbr-blue-warm-20);
+  --background-focused: transparent;
+  
+  --color: var(--govbr-blue-warm-vivid-70);
+  --color-hover: var(--govbr-blue-warm-vivid-80);
+  --color-activated: var(--govbr-blue-warm-vivid-80);
+  --color-focused: var(--govbr-blue-warm-vivid-70);
+  
+  --border-width: 0;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  
+  /* Estado focus */
+  &:focus {
+    outline: 2px solid var(--govbr-blue-warm-vivid-70);
+    outline-offset: 4px;
+  }
+  
+  /* Estado hover */
+  &:hover:not(:disabled) {
+    text-decoration: underline;
+  }
+  
+  /* Estado disabled */
+  &:disabled {
+    --color: var(--govbr-gray-60);
+    opacity: 1;
+    cursor: not-allowed;
+  }
+}
+
+/* === TAMANHOS === */
+
+/* Small */
+ion-button[size="small"] {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  
+  font-size: 14px;
+  line-height: 20px;
+  min-height: 40px;
+}
+
+/* Large */
+ion-button[size="large"] {
+  --padding-start: 32px;
+  --padding-end: 32px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  
+  font-size: 18px;
+  line-height: 28px;
+  min-height: 56px;
+}
+
+/* === BOTÃO BLOCK === */
+ion-button[expand="block"] {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* === BOTÃO CIRCULAR === */
+ion-button.button-circle {
+  --border-radius: 50%;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  width: 48px;
+  height: 48px;
+  
+  &[size="small"] {
+    width: 40px;
+    height: 40px;
+  }
+  
+  &[size="large"] {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* === VARIAÇÕES DE COR === */
+
+/* Success */
+ion-button[color="success"] {
+  --background: var(--govbr-success);
+  --background-hover: #0F6818;
+  --background-activated: #0F6818;
+  --border-color: var(--govbr-success);
+  
+  &:hover:not(:disabled) {
+    box-shadow: 0 4px 8px rgba(22, 136, 33, 0.3);
+  }
+}
+
+/* Warning */
+ion-button[color="warning"] {
+  --background: var(--govbr-warning);
+  --background-hover: #E0B406;
+  --background-activated: #E0B406;
+  --color: var(--govbr-gray-80);
+  --color-hover: var(--govbr-gray-80);
+  --border-color: var(--govbr-warning);
+  
+  &:hover:not(:disabled) {
+    box-shadow: 0 4px 8px rgba(255, 205, 7, 0.3);
+  }
+}
+
+/* Danger */
+ion-button[color="danger"] {
+  --background: var(--govbr-danger);
+  --background-hover: #CA1E06;
+  --background-activated: #CA1E06;
+  --border-color: var(--govbr-danger);
+  
+  &:hover:not(:disabled) {
+    box-shadow: 0 4px 8px rgba(229, 34, 7, 0.3);
+  }
+}
+
+/* === BOTÕES COM ÍCONES === */
+
+/* Ícone à esquerda - ação imediata */
+ion-button ion-icon[slot="start"] {
+  margin-inline-end: 8px;
+  font-size: 20px;
+}
+
+/* Ícone à direita - continuidade/navegação */
+ion-button ion-icon[slot="end"] {
+  margin-inline-start: 8px;
+  font-size: 20px;
+}
+
+/* Ícone sozinho */
+ion-button ion-icon[slot="icon-only"] {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* === GRUPO DE BOTÕES === */
+.button-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  
+  /* Mobile - empilhar verticalmente */
+  @media (max-width: 576px) {
+    flex-direction: column-reverse;
+    
+    ion-button {
+      width: 100%;
+    }
+  }
+  
+  /* Desktop - alinhamento à direita */
+  @media (min-width: 577px) {
+    justify-content: flex-end;
+  }
+}
+
+/* === FAB (Floating Action Button) === */
+ion-fab-button {
+  --background: var(--govbr-blue-warm-vivid-70);
+  --background-hover: var(--govbr-blue-warm-vivid-80);
+  --background-activated: #0C326F;
+  --color: var(--govbr-pure-0);
+  --box-shadow: 0 4px 8px rgba(19, 81, 180, 0.3);
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+  
+  &:focus {
+    outline: 2px solid var(--govbr-blue-warm-vivid-70);
+    outline-offset: 4px;
+  }
+}
+
+/* === LOADING STATE === */
+ion-button.button-loading {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: button-spin 0.6s linear infinite;
+  }
+}
+
+@keyframes button-spin {
+  to { transform: rotate(360deg); }
+}

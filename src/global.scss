@@ -16,7 +16,7 @@
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css";
+@import '@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
 @import "@ionic/angular/css/padding.css";
@@ -25,13 +25,204 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+/* === FONTE RAWLINE - DS GOV === */
+/* Importação da fonte oficial do Design System do Governo Federal */
+@import url('https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css');
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+/* === TEMA DS GOV === */
+@import "./theme/ds-gov-theme.scss";
+@import "./theme/ds-gov-buttons.scss";
+
+/* === ESTILOS GLOBAIS DS GOV === */
+
+* {
+  font-family: 'Rawline', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
+}
+
+body {
+  font-family: 'Rawline', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--govbr-gray-80);
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 36px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+h5 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+h6 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--govbr-gray-80);
+}
+
+/* Links */
+a {
+  color: var(--ion-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Botões customizados DS Gov */
+.br-button {
+  font-family: 'Rawline', sans-serif;
+  font-weight: 600;
+  border-radius: var(--govbr-surface-rounder-sm);
+  text-transform: none;
+  
+  &.primary {
+    --background: var(--ion-color-primary);
+    --background-hover: var(--ion-color-primary-shade);
+    --color: var(--ion-color-primary-contrast);
+  }
+  
+  &.secondary {
+    --background: transparent;
+    --color: var(--ion-color-primary);
+    --border-color: var(--ion-color-primary);
+    --border-width: 2px;
+    --border-style: solid;
+  }
+}
+
+/* Cards DS Gov Style */
+.ds-card {
+  background: white;
+  border-radius: var(--govbr-surface-rounder-md);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: var(--govbr-spacing-scale-2x);
+  margin-bottom: var(--govbr-spacing-scale-2x);
+}
+
+/* Container padrão */
+.container-govbr {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--govbr-spacing-scale-2x);
+}
+
+/* Utilidades de espaçamento DS Gov */
+.mb-1 { margin-bottom: var(--govbr-spacing-scale-half); }
+.mb-2 { margin-bottom: var(--govbr-spacing-scale-base); }
+.mb-3 { margin-bottom: var(--govbr-spacing-scale-2x); }
+.mb-4 { margin-bottom: var(--govbr-spacing-scale-3x); }
+.mb-5 { margin-bottom: var(--govbr-spacing-scale-4x); }
+
+.mt-1 { margin-top: var(--govbr-spacing-scale-half); }
+.mt-2 { margin-top: var(--govbr-spacing-scale-base); }
+.mt-3 { margin-top: var(--govbr-spacing-scale-2x); }
+.mt-4 { margin-top: var(--govbr-spacing-scale-3x); }
+.mt-5 { margin-top: var(--govbr-spacing-scale-4x); }
+
+.p-1 { padding: var(--govbr-spacing-scale-half); }
+.p-2 { padding: var(--govbr-spacing-scale-base); }
+.p-3 { padding: var(--govbr-spacing-scale-2x); }
+.p-4 { padding: var(--govbr-spacing-scale-3x); }
+.p-5 { padding: var(--govbr-spacing-scale-4x); }
+
+/* Cores de texto DS Gov */
+.text-primary { color: var(--ion-color-primary) !important; }
+.text-secondary { color: var(--ion-color-secondary) !important; }
+.text-success { color: var(--ion-color-success) !important; }
+.text-warning { color: var(--ion-color-warning) !important; }
+.text-danger { color: var(--ion-color-danger) !important; }
+.text-medium { color: var(--ion-color-medium) !important; }
+.text-dark { color: var(--ion-color-dark) !important; }
+
+/* Backgrounds DS Gov */
+.bg-light { background-color: var(--ion-color-light) !important; }
+.bg-primary { background-color: var(--ion-color-primary) !important; color: white; }
+.bg-secondary { background-color: var(--ion-color-secondary) !important; color: white; }
+
+/* Badges DS Gov */
+.badge-govbr {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  
+  &.success {
+    background-color: var(--govbr-success-lighten);
+    color: var(--govbr-success);
+  }
+  
+  &.warning {
+    background-color: var(--govbr-warning-lighten);
+    color: #856404;
+  }
+  
+  &.danger {
+    background-color: var(--govbr-danger-lighten);
+    color: var(--govbr-danger);
+  }
+  
+  &.info {
+    background-color: var(--govbr-info-lighten);
+    color: var(--govbr-info);
+  }
+}
+
+/* Divider DS Gov */
+.divider-govbr {
+  border: 0;
+  border-top: 1px solid var(--govbr-gray-20);
+  margin: var(--govbr-spacing-scale-2x) 0;
+}
+
+/* Focus states acessíveis */
+*:focus {
+  outline: 2px solid var(--ion-color-primary);
+  outline-offset: 2px;
+}
+
+ion-button:focus,
+ion-input:focus,
+ion-textarea:focus,
+ion-select:focus {
+  outline: 2px solid var(--ion-color-primary);
+  outline-offset: 2px;
+}
+
+/* Transições suaves */
+ion-button,
+ion-card,
+ion-item,
+a {
+  transition: all 0.2s ease-in-out;
+}

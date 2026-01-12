@@ -1,0 +1,223 @@
+/**
+ * DS Gov - Design System do Governo Federal
+ * Paleta de cores e variáveis customizadas para Ionic
+ */
+
+/* === CORES OFICIAIS GOV.BR === */
+:root {
+  /* Cores Primárias - Gov.br */
+  --govbr-blue: #377EC1;
+  --govbr-green: #52AE32;
+  --govbr-yellow: #FBBA00;
+  
+  /* Cor Primária Principal (Blue Warm) */
+  --govbr-blue-warm-vivid-70: #1351B4;
+  --govbr-blue-warm-20: #C5D4EB;
+  --govbr-blue-warm-vivid-80: #0C326F;
+  
+  /* Cores de Suporte */
+  --govbr-pure-0: #FFFFFF;
+  --govbr-pure-100: #000000;
+  --govbr-gray-2: #F8F8F8;
+  --govbr-gray-10: #E6E6E6;
+  --govbr-gray-20: #CCCCCC;
+  --govbr-gray-60: #888888;
+  --govbr-gray-80: #333333;
+  
+  /* Cores de Feedback */
+  --govbr-success: #168821;
+  --govbr-success-lighten: #E3F5E1;
+  --govbr-warning: #FFCD07;
+  --govbr-warning-lighten: #FFF5C2;
+  --govbr-danger: #E52207;
+  --govbr-danger-lighten: #F9E6E4;
+  --govbr-info: #155BCB;
+  --govbr-info-lighten: #D4E5FF;
+
+  /* === MAPEAMENTO PARA IONIC === */
+  
+  /** Primary - Azul principal do governo */
+  --ion-color-primary: var(--govbr-blue-warm-vivid-70);
+  --ion-color-primary-rgb: 19, 81, 180;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #0c326f;
+  --ion-color-primary-tint: #1c5fca;
+
+  /** Secondary - Azul claro */
+  --ion-color-secondary: #377EC1;
+  --ion-color-secondary-rgb: 55, 126, 193;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #2f6faa;
+  --ion-color-secondary-tint: #4b8bc7;
+
+  /** Tertiary - Verde */
+  --ion-color-tertiary: #52AE32;
+  --ion-color-tertiary-rgb: 82, 174, 50;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #48992c;
+  --ion-color-tertiary-tint: #63b647;
+
+  /** Success - Verde escuro */
+  --ion-color-success: #168821;
+  --ion-color-success-rgb: 22, 136, 33;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #13771d;
+  --ion-color-success-tint: #2d9437;
+
+  /** Warning - Amarelo */
+  --ion-color-warning: #FFCD07;
+  --ion-color-warning-rgb: 255, 205, 7;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0b406;
+  --ion-color-warning-tint: #ffd220;
+
+  /** Danger - Vermelho */
+  --ion-color-danger: #E52207;
+  --ion-color-danger-rgb: 229, 34, 7;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #ca1e06;
+  --ion-color-danger-tint: #e83820;
+
+  /** Light - Cinza claro */
+  --ion-color-light: #F8F8F8;
+  --ion-color-light-rgb: 248, 248, 248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #dadada;
+  --ion-color-light-tint: #f9f9f9;
+
+  /** Medium - Cinza médio */
+  --ion-color-medium: #888888;
+  --ion-color-medium-rgb: 136, 136, 136;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #787878;
+  --ion-color-medium-tint: #949494;
+
+  /** Dark - Cinza escuro */
+  --ion-color-dark: #333333;
+  --ion-color-dark-rgb: 51, 51, 51;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #2d2d2d;
+  --ion-color-dark-tint: #474747;
+
+  /* === TIPOGRAFIA === */
+  --ion-font-family: 'Rawline', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
+  
+  /* === ESPAÇAMENTOS === */
+  --govbr-spacing-scale-base: 8px;
+  --govbr-spacing-scale-2x: 16px;
+  --govbr-spacing-scale-3x: 24px;
+  --govbr-spacing-scale-4x: 32px;
+  --govbr-spacing-scale-half: 4px;
+  
+  /* === BORDER RADIUS === */
+  --govbr-surface-rounder-sm: 4px;
+  --govbr-surface-rounder-md: 8px;
+  --govbr-surface-rounder-lg: 16px;
+  
+  /* === BACKGROUND === */
+  --ion-background-color: #ffffff;
+  --ion-background-color-rgb: 255, 255, 255;
+  
+  --ion-text-color: #333333;
+  --ion-text-color-rgb: 51, 51, 51;
+  
+  --ion-color-step-50: #f8f8f8;
+  --ion-color-step-100: #f0f0f0;
+  --ion-color-step-150: #e9e9e9;
+  --ion-color-step-200: #e1e1e1;
+  --ion-color-step-250: #dadada;
+  --ion-color-step-300: #d2d2d2;
+  --ion-color-step-350: #cbcbcb;
+  --ion-color-step-400: #c3c3c3;
+  --ion-color-step-450: #bcbcbc;
+  --ion-color-step-500: #b4b4b4;
+  --ion-color-step-550: #adadad;
+  --ion-color-step-600: #a5a5a5;
+  --ion-color-step-650: #9e9e9e;
+  --ion-color-step-700: #969696;
+  --ion-color-step-750: #8f8f8f;
+  --ion-color-step-800: #888888;
+  --ion-color-step-850: #808080;
+  --ion-color-step-900: #797979;
+  --ion-color-step-950: #717171;
+}
+
+/* === DARK MODE === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-color-primary: #4a8fd9;
+    --ion-color-primary-rgb: 74, 143, 217;
+    --ion-color-primary-contrast: #000000;
+    --ion-color-primary-contrast-rgb: 0, 0, 0;
+    --ion-color-primary-shade: #4180bf;
+    --ion-color-primary-tint: #5c9add;
+
+    --ion-background-color: #1a1a1a;
+    --ion-background-color-rgb: 26, 26, 26;
+
+    --ion-text-color: #ffffff;
+    --ion-text-color-rgb: 255, 255, 255;
+
+    --ion-color-step-50: #262626;
+    --ion-color-step-100: #333333;
+    --ion-color-step-150: #404040;
+    --ion-color-step-200: #4d4d4d;
+    --ion-color-step-250: #595959;
+    --ion-color-step-300: #666666;
+    --ion-color-step-350: #737373;
+    --ion-color-step-400: #808080;
+    --ion-color-step-450: #8c8c8c;
+    --ion-color-step-500: #999999;
+    --ion-color-step-550: #a6a6a6;
+    --ion-color-step-600: #b3b3b3;
+    --ion-color-step-650: #bfbfbf;
+    --ion-color-step-700: #cccccc;
+    --ion-color-step-750: #d9d9d9;
+    --ion-color-step-800: #e6e6e6;
+    --ion-color-step-850: #f2f2f2;
+    --ion-color-step-900: #ffffff;
+  }
+}
+
+/* === CUSTOMIZAÇÕES ADICIONAIS === */
+
+/* Botões */
+ion-button {
+  --border-radius: var(--govbr-surface-rounder-sm);
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* Cards */
+ion-card {
+  --background: var(--ion-color-light);
+  border-radius: var(--govbr-surface-rounder-md);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Input */
+ion-input, ion-textarea {
+  --border-radius: var(--govbr-surface-rounder-sm);
+  --padding-start: 12px;
+  --padding-end: 12px;
+}
+
+/* Toolbar */
+ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+}
+
+/* Item */
+ion-item {
+  --border-radius: var(--govbr-surface-rounder-sm);
+}

@@ -1,0 +1,664 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Componentes Ionic</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Componentes Ionic</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Segmented Control para navegação -->
+  <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChange($event)">
+    <ion-segment-button value="buttons">
+      <ion-label>Botões</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="forms">
+      <ion-label>Formulários</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="lists">
+      <ion-label>Listas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="cards">
+      <ion-label>Cards</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="outros">
+      <ion-label>Outros</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Seção: Botões -->
+  <div *ngIf="selectedSegment === 'buttons'" class="section">
+    <h2 class="section-title">Botões DS Gov</h2>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Hierarquia de Ênfase</ion-card-title>
+        <ion-card-subtitle>Primário (Alta) → Secundário (Média) → Terciário (Baixa)</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="button-showcase">
+          <!-- Primary - Alta ênfase -->
+          <div class="button-demo">
+            <h3>Botão Primário (Alta Ênfase)</h3>
+            <p class="description">Usado para a ação principal da página. Use apenas um por tela.</p>
+            <ion-button color="primary">
+              Ação Principal
+            </ion-button>
+            <ion-button color="primary" disabled>
+              Desabilitado
+            </ion-button>
+          </div>
+
+          <!-- Secondary - Média ênfase -->
+          <div class="button-demo">
+            <h3>Botão Secundário (Média Ênfase)</h3>
+            <p class="description">Usado para ações secundárias ou alternativas.</p>
+            <ion-button fill="outline">
+              Ação Secundária
+            </ion-button>
+            <ion-button fill="outline" disabled>
+              Desabilitado
+            </ion-button>
+          </div>
+
+          <!-- Tertiary - Baixa ênfase -->
+          <div class="button-demo">
+            <h3>Botão Terciário (Baixa Ênfase)</h3>
+            <p class="description">Usado para ações menos importantes.</p>
+            <ion-button fill="clear">
+              Ação Terciária
+            </ion-button>
+            <ion-button fill="clear" disabled>
+              Desabilitado
+            </ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Tamanhos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="button-showcase">
+          <ion-button size="small" color="primary">Small</ion-button>
+          <ion-button color="primary">Default</ion-button>
+          <ion-button size="large" color="primary">Large</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Com Ícones</ion-card-title>
+        <ion-card-subtitle>Ícone à esquerda = ação imediata | Ícone à direita = continuidade</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="button-showcase">
+          <ion-button color="primary">
+            <ion-icon slot="start" name="save"></ion-icon>
+            Salvar
+          </ion-button>
+          <ion-button color="primary">
+            Continuar
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
+          <ion-button class="button-circle" color="primary">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Cores de Feedback</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="button-showcase">
+          <ion-button color="success">
+            <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+            Confirmar
+          </ion-button>
+          <ion-button color="warning">
+            <ion-icon slot="start" name="warning"></ion-icon>
+            Atenção
+          </ion-button>
+          <ion-button color="danger">
+            <ion-icon slot="start" name="trash"></ion-icon>
+            Excluir
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Botão Block</ion-card-title>
+        <ion-card-subtitle>Ocupa toda a largura do container</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button expand="block" color="primary">
+          Botão Block
+        </ion-button>
+        <ion-button expand="block" fill="outline">
+          Botão Block Secundário
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Grupo de Botões</ion-card-title>
+        <ion-card-subtitle>Alinhamento adequado para múltiplas ações</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="button-group">
+          <ion-button fill="clear">Cancelar</ion-button>
+          <ion-button fill="outline">Salvar Rascunho</ion-button>
+          <ion-button color="primary">Enviar</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>FAB (Floating Action Button)</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="fab-demo">
+        <p>Usado para ação principal flutuante</p>
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button size="small">
+          <ion-icon name="create"></ion-icon>
+        </ion-fab-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Boas Práticas DS Gov</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ul class="best-practices">
+          <li><strong>Um botão primário por página:</strong> Destaque a ação principal</li>
+          <li><strong>Ordem:</strong> Primário → Secundário → Terciário (da direita para esquerda)</li>
+          <li><strong>Labels claros:</strong> Use verbos de ação ("Salvar", "Enviar", "Cancelar")</li>
+          <li><strong>Ícones com propósito:</strong> Esquerda = ação imediata | Direita = continuidade</li>
+          <li><strong>Acessibilidade:</strong> Área mínima de toque 48x48px</li>
+          <li><strong>Estados visíveis:</strong> Hover, focus e disabled bem definidos</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Seção: Formulários -->
+  <div *ngIf="selectedSegment === 'forms'" class="section">
+    <h2 class="section-title">Formulários</h2>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Input</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input placeholder="Digite seu nome"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="fixed">Email</ion-label>
+          <ion-input type="email" placeholder="email@exemplo.com"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Mensagem</ion-label>
+          <ion-input placeholder="Escreva sua mensagem"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Textarea</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Descrição</ion-label>
+          <ion-textarea rows="4" placeholder="Digite uma descrição"></ion-textarea>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Searchbar</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-searchbar [(ngModel)]="searchText" placeholder="Buscar"></ion-searchbar>
+        <p *ngIf="searchText">Buscando: {{ searchText }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Checkbox</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-checkbox [(ngModel)]="checkboxChecked">Aceito os termos</ion-checkbox>
+        </ion-item>
+        <p>Estado: {{ checkboxChecked ? 'Marcado' : 'Desmarcado' }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Toggle</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Notificações</ion-label>
+          <ion-toggle [(ngModel)]="toggleChecked"></ion-toggle>
+        </ion-item>
+        <p>Estado: {{ toggleChecked ? 'Ativado' : 'Desativado' }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Radio</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-radio-group [(ngModel)]="selectedValue">
+          <ion-item>
+            <ion-radio value="option1">Opção 1</ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-radio value="option2">Opção 2</ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-radio value="option3">Opção 3</ion-radio>
+          </ion-item>
+        </ion-radio-group>
+        <p>Selecionado: {{ selectedValue }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Select</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Cidade</ion-label>
+          <ion-select placeholder="Selecione">
+            <ion-select-option value="sp">São Paulo</ion-select-option>
+            <ion-select-option value="rj">Rio de Janeiro</ion-select-option>
+            <ion-select-option value="mg">Minas Gerais</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Range</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-range [(ngModel)]="rangeValue" min="0" max="100">
+            <ion-label slot="start">0</ion-label>
+            <ion-label slot="end">100</ion-label>
+          </ion-range>
+        </ion-item>
+        <p>Valor: {{ rangeValue }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Datetime</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Data</ion-label>
+          <ion-datetime-button datetime="datetime"></ion-datetime-button>
+        </ion-item>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Seção: Listas -->
+  <div *ngIf="selectedSegment === 'lists'" class="section">
+    <h2 class="section-title">Listas</h2>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Lista Básica</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let item of items">
+            <ion-label>{{ item }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Lista com Ícones</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>Início</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>Perfil</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="settings" slot="start"></ion-icon>
+            <ion-label>Configurações</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Lista com Avatar</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            </ion-avatar>
+            <ion-label>
+              <h2>João Silva</h2>
+              <p>Desenvolvedor</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            </ion-avatar>
+            <ion-label>
+              <h2>Maria Santos</h2>
+              <p>Designer</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Lista Deslizável</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item-sliding>
+            <ion-item>
+              <ion-label>Deslize para a esquerda</ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="primary">
+                <ion-icon slot="icon-only" name="create"></ion-icon>
+              </ion-item-option>
+              <ion-item-option color="danger">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>List Header & Divider</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Seção A</ion-label>
+          </ion-list-header>
+          <ion-item>Item 1</ion-item>
+          <ion-item>Item 2</ion-item>
+          <ion-item-divider>
+            <ion-label>Divisor</ion-label>
+          </ion-item-divider>
+          <ion-list-header>
+            <ion-label>Seção B</ion-label>
+          </ion-list-header>
+          <ion-item>Item 3</ion-item>
+          <ion-item>Item 4</ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Seção: Cards -->
+  <div *ngIf="selectedSegment === 'cards'" class="section">
+    <h2 class="section-title">Cards</h2>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Card Básico</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Este é um card básico do Ionic.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Subtítulo</ion-card-subtitle>
+        <ion-card-title>Card com Subtítulo</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Este card tem um subtítulo acima do título.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <img src="https://ionicframework.com/docs/img/demos/card-media.png" />
+      <ion-card-header>
+        <ion-card-title>Card com Imagem</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Este card contém uma imagem no topo.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Card com Botões</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Este card tem botões na parte inferior.
+      </ion-card-content>
+      <ion-button fill="clear">Cancelar</ion-button>
+      <ion-button>Confirmar</ion-button>
+    </ion-card>
+
+    <ion-card>
+      <ion-item>
+        <ion-icon name="wifi" slot="start"></ion-icon>
+        <ion-label>Card + List Item</ion-label>
+        <ion-button fill="outline" slot="end">Ver</ion-button>
+      </ion-item>
+      <ion-card-content>
+        Combinação de card com list item.
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Seção: Outros -->
+  <div *ngIf="selectedSegment === 'outros'" class="section">
+    <h2 class="section-title">Outros Componentes</h2>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Badges</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-badge>Default</ion-badge>
+        <ion-badge color="primary">Primary</ion-badge>
+        <ion-badge color="secondary">Secondary</ion-badge>
+        <ion-badge color="success">Success</ion-badge>
+        <ion-badge color="warning">Warning</ion-badge>
+        <ion-badge color="danger">Danger</ion-badge>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Chips</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-chip>
+          <ion-label>Default</ion-label>
+        </ion-chip>
+        <ion-chip color="primary">
+          <ion-icon name="pin"></ion-icon>
+          <ion-label>Com Ícone</ion-label>
+        </ion-chip>
+        <ion-chip color="secondary">
+          <ion-avatar>
+            <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label>Com Avatar</ion-label>
+        </ion-chip>
+        <ion-chip>
+          <ion-label>Removível</ion-label>
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-chip>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Progress Bar</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-progress-bar value="0.5"></ion-progress-bar>
+        <ion-progress-bar color="secondary" value="0.75"></ion-progress-bar>
+        <ion-progress-bar color="danger" value="1"></ion-progress-bar>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Spinner</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-spinner></ion-spinner>
+        <ion-spinner name="lines"></ion-spinner>
+        <ion-spinner name="dots"></ion-spinner>
+        <ion-spinner name="circles"></ion-spinner>
+        <ion-spinner name="crescent"></ion-spinner>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Accordion</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-accordion-group>
+          <ion-accordion value="first">
+            <ion-item slot="header">
+              <ion-label>Primeiro Item</ion-label>
+            </ion-item>
+            <div slot="content">Conteúdo do primeiro item</div>
+          </ion-accordion>
+          <ion-accordion value="second">
+            <ion-item slot="header">
+              <ion-label>Segundo Item</ion-label>
+            </ion-item>
+            <div slot="content">Conteúdo do segundo item</div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Skeleton Text</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+        <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+        <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Toast</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button (click)="showAlert('Toast exibido!')">Mostrar Toast</ion-button>
+        <p><small>Implementar com ToastController</small></p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Thumbnail</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>Item com Thumbnail</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Grid</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" style="border: 1px solid #ccc; padding: 10px;">
+              Col 1
+            </ion-col>
+            <ion-col size="6" style="border: 1px solid #ccc; padding: 10px;">
+              Col 2
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="4" style="border: 1px solid #ccc; padding: 10px;">
+              Col 1
+            </ion-col>
+            <ion-col size="4" style="border: 1px solid #ccc; padding: 10px;">
+              Col 2
+            </ion-col>
+            <ion-col size="4" style="border: 1px solid #ccc; padding: 10px;">
+              Col 3
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

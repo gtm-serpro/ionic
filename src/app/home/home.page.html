@@ -1,27 +1,66 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Inbox
+      eProcesso
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">
-        Inbox
-      </ion-title>
+      <ion-title size="large">eProcesso</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
-    @for (message of getMessages(); track message) {
-      <app-message [message]="message"></app-message>
-    }
-  </ion-list>
+  <div class="container">
+    <div class="welcome-section">
+      <h1>Bem-vindo ao eProcesso</h1>
+      <p>Sistema de busca de processos administrativos</p>
+    </div>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Componentes do Sistema</ion-card-title>
+        <ion-card-subtitle>Visualize todos os componentes disponíveis</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button expand="block" (click)="goToShowcase()">
+          <ion-icon slot="start" name="grid-outline"></ion-icon>
+          Ver Showcase de Componentes
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Funcionalidades</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-icon name="search" slot="start"></ion-icon>
+            <ion-label>
+              <h2>Busca de Processos</h2>
+              <p>Pesquise processos administrativos</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="filter" slot="start"></ion-icon>
+            <ion-label>
+              <h2>Filtros Avançados</h2>
+              <p>Refine sua busca com filtros</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="document-text" slot="start"></ion-icon>
+            <ion-label>
+              <h2>Visualização de Documentos</h2>
+              <p>Acesse os documentos dos processos</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
