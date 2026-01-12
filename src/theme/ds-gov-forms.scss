@@ -1,0 +1,466 @@
+/**
+ * Formulários DS Gov - Design System do Governo Federal
+ * Estilos para inputs, selects, textareas e outros elementos de formulário
+ */
+
+/* === FORM GROUP === */
+.form-group {
+  margin-bottom: 24px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* === FORM LABEL === */
+.form-label {
+  display: block;
+  font-family: 'Rawline', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--govbr-gray-80);
+  margin-bottom: 8px;
+  
+  .required {
+    color: var(--govbr-danger);
+    margin-left: 2px;
+  }
+}
+
+/* === FORM ITEM === */
+.form-item {
+  --background: var(--govbr-pure-0);
+  --border-color: var(--govbr-gray-20);
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 8px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 56px;
+  --inner-border-width: 0; /* Remove linha interna do Ionic */
+  --highlight-height: 0; /* Remove linha de highlight */
+  
+  font-family: 'Rawline', sans-serif;
+  margin-bottom: 0;
+  margin-top: 0;
+  border-radius: 8px;
+  border-bottom: var(--border-width) var(--style) var(--border-color);
+
+  /* Label SEMPRE fora do input */
+  ion-label {
+    position: static !important;
+    transform: none !important;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--govbr-gray-80);
+    margin-bottom: 8px;
+    display: block;
+    padding: 0;
+    
+    .required {
+      color: var(--govbr-danger);
+      margin-left: 2px;
+    }
+  }
+  
+  /* Input */
+  ion-input,
+  ion-textarea,
+  ion-select {
+    --color: var(--govbr-gray-80);
+    --placeholder-color: var(--govbr-gray-40);
+    --placeholder-opacity: 1;
+    --padding-start: 0;
+    --padding-end: 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  /* Focus */
+  &.ion-focused,
+  &.item-has-focus {
+    --border-color: var(--govbr-blue-warm-vivid-70);
+    --border-width: 2px;
+    
+    ion-label {
+      color: var(--govbr-blue-warm-vivid-70);
+    }
+  }
+  
+  /* Hover */
+  &:hover:not(.ion-focused):not(.item-has-focus):not([disabled]) {
+    --border-color: var(--govbr-gray-40);
+  }
+  
+  /* Disabled */
+  &[disabled],
+  &.ion-disabled,
+  &.item-disabled {
+    --background: var(--govbr-gray-2);
+    --opacity: 1;
+    cursor: not-allowed;
+    
+    ion-label {
+      color: var(--govbr-gray-40);
+    }
+    
+    ion-input,
+    ion-textarea,
+    ion-select {
+      --color: var(--govbr-gray-40);
+    }
+  }
+}
+
+/* === ESTADOS DE VALIDAÇÃO === */
+
+/* Sucesso */
+.form-item.success {
+  --border-color: var(--govbr-success);
+  --border-width: 2px;
+  
+  ion-label {
+    color: var(--govbr-success);
+  }
+  
+  .status-icon {
+    color: var(--govbr-success);
+    font-size: 24px;
+  }
+}
+
+/* Erro */
+.form-item.error {
+  --border-color: var(--govbr-danger);
+  --border-width: 2px;
+  
+  ion-label {
+    color: var(--govbr-danger);
+  }
+  
+  .status-icon {
+    color: var(--govbr-danger);
+    font-size: 24px;
+  }
+}
+
+/* Warning */
+.form-item.warning {
+  --border-color: var(--govbr-warning);
+  --border-width: 2px;
+  
+  ion-label {
+    color: var(--govbr-warning-darken);
+  }
+  
+  .status-icon {
+    color: var(--govbr-warning);
+    font-size: 24px;
+  }
+}
+
+/* === MENSAGENS DE FEEDBACK === */
+
+/* Helper text (mensagem de ajuda) */
+.form-helper {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--govbr-gray-60);
+  margin-top: 8px;
+  padding-left: 16px;
+}
+
+/* Mensagens de feedback */
+.form-feedback {
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 8px;
+  padding-left: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  &.success {
+    color: var(--govbr-success);
+    
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23168821' d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z'/%3E%3C/svg%3E");
+    }
+  }
+  
+  &.error {
+    color: var(--govbr-danger);
+    
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23E52207' d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/%3E%3C/svg%3E");
+    }
+  }
+  
+  &.warning {
+    color: var(--govbr-warning-darken);
+    
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23E0B406' d='M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z'/%3E%3C/svg%3E");
+    }
+  }
+  
+  &.info {
+    color: var(--govbr-info);
+    
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23155BCB' d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z'/%3E%3C/svg%3E");
+    }
+  }
+}
+
+/* === REQUIRED INDICATOR === */
+.required {
+  color: var(--govbr-danger);
+  font-weight: 600;
+}
+
+/* === CHECKBOX E RADIO === */
+.checkbox-item,
+.radio-item {
+  --min-height: 48px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  
+  ion-checkbox,
+  ion-radio {
+    margin-right: 12px;
+  }
+  
+  ion-label {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--govbr-gray-80);
+  }
+}
+
+/* Customização do Checkbox */
+ion-checkbox {
+  --size: 24px;
+  --checkbox-background: var(--govbr-pure-0);
+  --checkbox-background-checked: var(--govbr-blue-warm-vivid-70);
+  --border-color: var(--govbr-gray-40);
+  --border-color-checked: var(--govbr-blue-warm-vivid-70);
+  --border-width: 2px;
+  --border-radius: 4px;
+  --checkmark-color: var(--govbr-pure-0);
+  --transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    --border-color: var(--govbr-blue-warm-vivid-70);
+  }
+}
+
+/* Customização do Radio */
+ion-radio {
+  --size: 24px;
+  --color: var(--govbr-pure-0);
+  --color-checked: var(--govbr-blue-warm-vivid-70);
+  --border-width: 2px;
+  
+  &::part(container) {
+    border-color: var(--govbr-gray-40);
+  }
+  
+  &:hover::part(container) {
+    border-color: var(--govbr-blue-warm-vivid-70);
+  }
+}
+
+/* Customização do Toggle */
+ion-toggle {
+  --background: var(--govbr-gray-20);
+  --background-checked: var(--govbr-blue-warm-vivid-70);
+  --handle-background: var(--govbr-pure-0);
+  --handle-background-checked: var(--govbr-pure-0);
+  --handle-width: 24px;
+  --handle-height: 24px;
+  --handle-spacing: 2px;
+  
+  &::part(track) {
+    height: 28px;
+    width: 52px;
+  }
+}
+
+/* === SEARCHBAR === */
+ion-searchbar {
+  --background: var(--govbr-pure-0);
+  --border-radius: 100px;
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --color: var(--govbr-gray-80);
+  --placeholder-color: var(--govbr-gray-40);
+  --icon-color: var(--govbr-gray-60);
+  --clear-button-color: var(--govbr-gray-60);
+  
+  padding: 8px 0;
+  
+  &.searchbar-has-focus {
+    --box-shadow: 0 2px 8px rgba(19, 81, 180, 0.2);
+  }
+}
+
+.search-result {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: var(--govbr-blue-warm-10);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--govbr-gray-80);
+  
+  strong {
+    color: var(--govbr-blue-warm-vivid-70);
+    font-weight: 600;
+  }
+}
+
+/* === RANGE (SLIDER) === */
+ion-range {
+  --bar-background: var(--govbr-gray-20);
+  --bar-background-active: var(--govbr-blue-warm-vivid-70);
+  --bar-height: 4px;
+  --bar-border-radius: 2px;
+  --knob-background: var(--govbr-blue-warm-vivid-70);
+  --knob-size: 24px;
+  --knob-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --pin-background: var(--govbr-blue-warm-vivid-70);
+  --pin-color: var(--govbr-pure-0);
+  
+  padding: 16px 0;
+}
+
+/* === FORM SECTION === */
+.form-section {
+  margin-bottom: 32px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-section-title {
+  font-family: 'Rawline', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--govbr-gray-80);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--govbr-gray-20);
+}
+
+/* === FORM ROW (GRID) === */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 0;
+  
+  .form-group {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  /* Colunas */
+  .col-md-3 {
+    flex: 0 0 calc(25% - 12px);
+  }
+  
+  .col-md-4 {
+    flex: 0 0 calc(33.333% - 11px);
+  }
+  
+  .col-md-5 {
+    flex: 0 0 calc(41.666% - 10px);
+  }
+  
+  .col-md-6 {
+    flex: 0 0 calc(50% - 8px);
+  }
+  
+  .col-md-8 {
+    flex: 0 0 calc(66.666% - 5px);
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0;
+    
+    .form-group,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-8 {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+/* === FORM ACTIONS === */
+.form-actions {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--govbr-gray-20);
+}
+
+/* === EXAMPLE FORM CARD === */
+.example-form-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-left: 4px solid var(--govbr-blue-warm-vivid-70);
+}
+
+/* === SELECT CUSTOMIZATION === */
+ion-select {
+  --placeholder-color: var(--govbr-gray-40);
+  --placeholder-opacity: 1;
+  
+  &::part(icon) {
+    color: var(--govbr-gray-60);
+  }
+}
+
+/* === DATETIME BUTTON === */
+ion-datetime-button {
+  --background: transparent;
+  --color: var(--govbr-blue-warm-vivid-70);
+  font-size: 16px;
+  
+  &::part(native) {
+    padding: 0;
+  }
+}
+
+/* === TEXTAREA === */
+ion-textarea {
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  min-height: 120px;
+}
+
+/* === LINKS DENTRO DE LABELS === */
+.form-item ion-label a {
+  color: var(--govbr-blue-warm-vivid-70);
+  text-decoration: underline;
+  
+  &:hover {
+    color: var(--govbr-blue-warm-vivid-80);
+  }
+}

@@ -21,6 +21,7 @@ ion-button {
   line-height: 24px;
   text-transform: none;
   letter-spacing: 0;
+  border-radius: var(--border-radius);
   
   min-height: 48px; /* Acessibilidade - área de toque mínima */
   

@@ -36,47 +36,50 @@
 
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Hierarquia de Ênfase</ion-card-title>
-        <ion-card-subtitle>Primário (Alta) → Secundário (Média) → Terciário (Baixa)</ion-card-subtitle>
+        <ion-card-title>Hierarquia de Ênfase (Padrão Oficial)</ion-card-title>
+        <ion-card-subtitle>Primário → Secundário → Terciário</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <div class="button-showcase">
-          <!-- Primary - Alta ênfase -->
+          <!-- Primary -->
           <div class="button-demo">
-            <h3>Botão Primário (Alta Ênfase)</h3>
-            <p class="description">Usado para a ação principal da página. Use apenas um por tela.</p>
-            <ion-button color="primary">
-              Ação Principal
-            </ion-button>
-            <ion-button color="primary" disabled>
-              Desabilitado
-            </ion-button>
+            <h3>Primário (Alta Ênfase)</h3>
+            <p class="description">Ação principal - use apenas 1 por tela</p>
+            <ion-button color="primary">Ação Principal</ion-button>
+            <ion-button color="primary" disabled>Desabilitado</ion-button>
           </div>
 
-          <!-- Secondary - Média ênfase -->
+          <!-- Secondary -->
           <div class="button-demo">
-            <h3>Botão Secundário (Média Ênfase)</h3>
-            <p class="description">Usado para ações secundárias ou alternativas.</p>
-            <ion-button fill="outline">
-              Ação Secundária
-            </ion-button>
-            <ion-button fill="outline" disabled>
-              Desabilitado
-            </ion-button>
+            <h3>Secundário (Média Ênfase)</h3>
+            <p class="description">Ações secundárias ou alternativas</p>
+            <ion-button fill="outline">Ação Secundária</ion-button>
+            <ion-button fill="outline" disabled>Desabilitado</ion-button>
           </div>
 
-          <!-- Tertiary - Baixa ênfase -->
+          <!-- Tertiary -->
           <div class="button-demo">
-            <h3>Botão Terciário (Baixa Ênfase)</h3>
-            <p class="description">Usado para ações menos importantes.</p>
-            <ion-button fill="clear">
-              Ação Terciária
-            </ion-button>
-            <ion-button fill="clear" disabled>
-              Desabilitado
-            </ion-button>
+            <h3>Terciário (Baixa Ênfase)</h3>
+            <p class="description">Ações menos importantes</p>
+            <ion-button fill="clear">Ação Terciária</ion-button>
+            <ion-button fill="clear" disabled>Desabilitado</ion-button>
           </div>
         </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Estados de Interação</ion-card-title>
+        <ion-card-subtitle>Hover, Focus, Active</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="button-showcase">
+          <ion-button color="primary">Passe o mouse (Hover)</ion-button>
+          <ion-button fill="outline">Clique para ver Active</ion-button>
+          <ion-button fill="clear">Use Tab para Focus</ion-button>
+        </div>
+        <p class="hint">Navegue com Tab para ver o outline de foco (acessibilidade)</p>
       </ion-card-content>
     </ion-card>
 
@@ -86,9 +89,9 @@
       </ion-card-header>
       <ion-card-content>
         <div class="button-showcase">
-          <ion-button size="small" color="primary">Small</ion-button>
-          <ion-button color="primary">Default</ion-button>
-          <ion-button size="large" color="primary">Large</ion-button>
+          <ion-button size="small" color="primary">Small (40px)</ion-button>
+          <ion-button color="primary">Default (48px)</ion-button>
+          <ion-button size="large" color="primary">Large (56px)</ion-button>
         </div>
       </ion-card-content>
     </ion-card>
@@ -96,7 +99,7 @@
     <ion-card>
       <ion-card-header>
         <ion-card-title>Com Ícones</ion-card-title>
-        <ion-card-subtitle>Ícone à esquerda = ação imediata | Ícone à direita = continuidade</ion-card-subtitle>
+        <ion-card-subtitle>Esquerda = ação | Direita = continuidade</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <div class="button-showcase">
@@ -108,8 +111,31 @@
             Continuar
             <ion-icon slot="end" name="arrow-forward"></ion-icon>
           </ion-button>
-          <ion-button class="button-circle" color="primary">
+          <ion-button class="circle" color="primary">
             <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Botão Circular</ion-card-title>
+        <ion-card-subtitle>Classe .circle</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="button-showcase">
+          <ion-button class="circle small" color="primary">
+            <ion-icon slot="icon-only" name="heart"></ion-icon>
+          </ion-button>
+          <ion-button class="circle" color="primary">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+          <ion-button class="circle large" color="primary">
+            <ion-icon slot="icon-only" name="close"></ion-icon>
+          </ion-button>
+          <ion-button class="circle" fill="outline">
+            <ion-icon slot="icon-only" name="search"></ion-icon>
           </ion-button>
         </div>
       </ion-card-content>
@@ -140,14 +166,18 @@
     <ion-card>
       <ion-card-header>
         <ion-card-title>Botão Block</ion-card-title>
-        <ion-card-subtitle>Ocupa toda a largura do container</ion-card-subtitle>
+        <ion-card-subtitle>Largura 100%</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-button expand="block" color="primary">
-          Botão Block
+          <ion-icon slot="start" name="send"></ion-icon>
+          Botão Block Primário
         </ion-button>
         <ion-button expand="block" fill="outline">
           Botão Block Secundário
+        </ion-button>
+        <ion-button expand="block" fill="clear">
+          Botão Block Terciário
         </ion-button>
       </ion-card-content>
     </ion-card>
@@ -155,13 +185,51 @@
     <ion-card>
       <ion-card-header>
         <ion-card-title>Grupo de Botões</ion-card-title>
-        <ion-card-subtitle>Alinhamento adequado para múltiplas ações</ion-card-subtitle>
+        <ion-card-subtitle>Desktop: alinhado à direita | Mobile: empilhado invertido</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <div class="button-group">
-          <ion-button fill="clear">Cancelar</ion-button>
-          <ion-button fill="outline">Salvar Rascunho</ion-button>
-          <ion-button color="primary">Enviar</ion-button>
+          <ion-button fill="clear">
+            Cancelar
+          </ion-button>
+          <ion-button fill="outline">
+            Salvar Rascunho
+          </ion-button>
+          <ion-button color="primary">
+            <ion-icon slot="start" name="send"></ion-icon>
+            Enviar
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Botão Invertido</ion-card-title>
+        <ion-card-subtitle>Para fundos escuros</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content style="background: var(--govbr-blue-warm-vivid-80); padding: 24px; border-radius: 8px;">
+        <div class="button-showcase">
+          <ion-button class="button-inverted">
+            Botão Invertido
+          </ion-button>
+          <ion-button class="button-inverted secondary">
+            Secundário Invertido
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Botão Loading</ion-card-title>
+        <ion-card-subtitle>Estado de carregamento</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="button-showcase">
+          <ion-button class="button-loading" color="primary">
+            Salvando...
+          </ion-button>
         </div>
       </ion-card-content>
     </ion-card>
@@ -171,7 +239,6 @@
         <ion-card-title>FAB (Floating Action Button)</ion-card-title>
       </ion-card-header>
       <ion-card-content class="fab-demo">
-        <p>Usado para ação principal flutuante</p>
         <ion-fab-button>
           <ion-icon name="add"></ion-icon>
         </ion-fab-button>
@@ -181,159 +248,550 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
+    <ion-card class="best-practices-card">
       <ion-card-header>
-        <ion-card-title>Boas Práticas DS Gov</ion-card-title>
+        <ion-card-title>✓ Boas Práticas DS Gov</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <ul class="best-practices">
-          <li><strong>Um botão primário por página:</strong> Destaque a ação principal</li>
-          <li><strong>Ordem:</strong> Primário → Secundário → Terciário (da direita para esquerda)</li>
-          <li><strong>Labels claros:</strong> Use verbos de ação ("Salvar", "Enviar", "Cancelar")</li>
-          <li><strong>Ícones com propósito:</strong> Esquerda = ação imediata | Direita = continuidade</li>
-          <li><strong>Acessibilidade:</strong> Área mínima de toque 48x48px</li>
-          <li><strong>Estados visíveis:</strong> Hover, focus e disabled bem definidos</li>
+          <li><strong>Um primário por tela:</strong> Destaque a ação principal</li>
+          <li><strong>Ordem desktop:</strong> Terciário → Secundário → Primário (da esquerda para direita)</li>
+          <li><strong>Ordem mobile:</strong> Empilhados, primário no topo</li>
+          <li><strong>Labels claras:</strong> Verbos de ação ("Salvar", "Enviar", "Cancelar")</li>
+          <li><strong>Ícones consistentes:</strong> Esquerda = ação imediata | Direita = continuidade</li>
+          <li><strong>Área mínima:</strong> 44x44px para acessibilidade (WCAG 2.5.5)</li>
+          <li><strong>Focus visível:</strong> Outline azul para navegação por teclado</li>
+          <li><strong>Border radius:</strong> 24px (capsule/pílula)</li>
+          <li><strong>Transições:</strong> 0.15s cubic-bezier(0.4, 0, 0.2, 1)</li>
         </ul>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Exemplo de Formulário</ion-card-title>
+        <ion-card-subtitle>Aplicação prática do padrão</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div style="background: var(--ion-color-light); padding: 24px; border-radius: 8px;">
+          <p style="margin-bottom: 24px;">Campos do formulário aqui...</p>
+          <div class="button-group">
+            <ion-button fill="clear">
+              Cancelar
+            </ion-button>
+            <ion-button fill="outline">
+              <ion-icon slot="start" name="save"></ion-icon>
+              Salvar Rascunho
+            </ion-button>
+            <ion-button color="primary">
+              <ion-icon slot="start" name="send"></ion-icon>
+              Enviar
+            </ion-button>
+          </div>
+        </div>
       </ion-card-content>
     </ion-card>
   </div>
 
   <!-- Seção: Formulários -->
+    <!-- Seção: Formulários -->
   <div *ngIf="selectedSegment === 'forms'" class="section">
-    <h2 class="section-title">Formulários</h2>
+    <h2 class="section-title">Formulários DS Gov</h2>
 
+    <!-- Input Text -->
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Input</ion-card-title>
+        <ion-card-title>Input de Texto</ion-card-title>
+        <ion-card-subtitle>Campos de entrada com label e estados</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
-          <ion-label position="floating">Nome</ion-label>
-          <ion-input placeholder="Digite seu nome"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="fixed">Email</ion-label>
-          <ion-input type="email" placeholder="email@exemplo.com"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">Mensagem</ion-label>
-          <ion-input placeholder="Escreva sua mensagem"></ion-input>
-        </ion-item>
+        <!-- Input Normal -->
+        <div class="form-group">
+          <label class="form-label">Nome Completo <span class="required">*</span></label>
+          <ion-item class="form-item" lines="none">
+            <ion-input placeholder="Digite seu nome completo"></ion-input>
+          </ion-item>
+          <div class="form-helper">Campo obrigatório</div>
+        </div>
+
+        <!-- Input com sucesso -->
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <ion-item class="form-item success" lines="none">
+            <ion-input type="email" value="usuario@exemplo.com"></ion-input>
+            <ion-icon name="checkmark-circle" slot="end" class="status-icon"></ion-icon>
+          </ion-item>
+          <div class="form-feedback success">Email válido</div>
+        </div>
+
+        <!-- Input com erro -->
+        <div class="form-group">
+          <label class="form-label">CPF <span class="required">*</span></label>
+          <ion-item class="form-item error" lines="none">
+            <ion-input placeholder="000.000.000-00" value="123"></ion-input>
+            <ion-icon name="alert-circle" slot="end" class="status-icon"></ion-icon>
+          </ion-item>
+          <div class="form-feedback error">CPF inválido. Digite um CPF válido no formato 000.000.000-00</div>
+        </div>
+
+        <!-- Input desabilitado -->
+        <div class="form-group">
+          <label class="form-label">Campo Desabilitado</label>
+          <ion-item class="form-item" lines="none" disabled>
+            <ion-input value="Este campo está desabilitado" disabled></ion-input>
+          </ion-item>
+        </div>
+
+        <!-- Input com ícone -->
+        <div class="form-group">
+          <label class="form-label">Usuário</label>
+          <ion-item class="form-item" lines="none">
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-input placeholder="Digite seu usuário"></ion-input>
+          </ion-item>
+        </div>
+
+        <!-- Input com botão -->
+        <div class="form-group">
+          <label class="form-label">Senha</label>
+          <ion-item class="form-item" lines="none">
+            <ion-input type="password" placeholder="Digite sua senha"></ion-input>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon name="eye-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <div class="form-helper">A senha deve ter no mínimo 8 caracteres</div>
+        </div>
       </ion-card-content>
     </ion-card>
 
+    <!-- Textarea -->
     <ion-card>
       <ion-card-header>
         <ion-card-title>Textarea</ion-card-title>
+        <ion-card-subtitle>Campo de texto multilinha</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
-          <ion-label position="floating">Descrição</ion-label>
-          <ion-textarea rows="4" placeholder="Digite uma descrição"></ion-textarea>
-        </ion-item>
+        <div class="form-group">
+          <label class="form-label">Observações <span class="required">*</span></label>
+          <ion-item class="form-item" lines="none">
+            <ion-textarea 
+              rows="4" 
+              placeholder="Digite suas observações"
+              maxlength="500">
+            </ion-textarea>
+          </ion-item>
+          <div class="form-helper">Máximo de 500 caracteres (0/500)</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Descrição Detalhada</label>
+          <ion-item class="form-item" lines="none">
+            <ion-textarea 
+              rows="6" 
+              placeholder="Digite uma descrição mais detalhada"
+              autoGrow="true">
+            </ion-textarea>
+          </ion-item>
+        </div>
       </ion-card-content>
     </ion-card>
 
+    <!-- Select -->
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Searchbar</ion-card-title>
+        <ion-card-title>Select (Dropdown)</ion-card-title>
+        <ion-card-subtitle>Seleção de opções</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-searchbar [(ngModel)]="searchText" placeholder="Buscar"></ion-searchbar>
-        <p *ngIf="searchText">Buscando: {{ searchText }}</p>
+        <div class="form-group">
+          <label class="form-label">Estado <span class="required">*</span></label>
+          <ion-item class="form-item" lines="none">
+            <ion-select placeholder="Selecione um estado">
+              <ion-select-option value="sp">São Paulo</ion-select-option>
+              <ion-select-option value="rj">Rio de Janeiro</ion-select-option>
+              <ion-select-option value="mg">Minas Gerais</ion-select-option>
+              <ion-select-option value="df">Distrito Federal</ion-select-option>
+              <ion-select-option value="ba">Bahia</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Múltipla Escolha</label>
+          <ion-item class="form-item" lines="none">
+            <ion-select placeholder="Selecione um ou mais" multiple>
+              <ion-select-option value="js">JavaScript</ion-select-option>
+              <ion-select-option value="ts">TypeScript</ion-select-option>
+              <ion-select-option value="py">Python</ion-select-option>
+              <ion-select-option value="java">Java</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <div class="form-helper">Você pode selecionar múltiplas opções</div>
+        </div>
       </ion-card-content>
     </ion-card>
 
+    <!-- Checkbox e Radio -->
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Checkbox</ion-card-title>
+        <ion-card-title>Checkbox e Radio Button</ion-card-title>
+        <ion-card-subtitle>Seleção de opções</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
-          <ion-checkbox [(ngModel)]="checkboxChecked">Aceito os termos</ion-checkbox>
-        </ion-item>
-        <p>Estado: {{ checkboxChecked ? 'Marcado' : 'Desmarcado' }}</p>
+        <!-- Checkbox -->
+        <div class="form-group">
+          <div class="form-label">Selecione suas preferências:</div>
+          <ion-item class="form-item checkbox-item" lines="none">
+            <ion-checkbox slot="start" [(ngModel)]="checkboxChecked"></ion-checkbox>
+            <ion-label>Receber notificações por email</ion-label>
+          </ion-item>
+          <ion-item class="form-item checkbox-item" lines="none">
+            <ion-checkbox slot="start"></ion-checkbox>
+            <ion-label>Receber notificações por SMS</ion-label>
+          </ion-item>
+          <ion-item class="form-item checkbox-item" lines="none">
+            <ion-checkbox slot="start" checked></ion-checkbox>
+            <ion-label>Aceito os termos de uso <span class="required">*</span></ion-label>
+          </ion-item>
+        </div>
+
+        <!-- Radio -->
+        <div class="form-group">
+          <div class="form-label">Tipo de pessoa <span class="required">*</span></div>
+          <ion-radio-group [(ngModel)]="selectedValue">
+            <ion-item class="form-item radio-item" lines="none">
+              <ion-radio slot="start" value="fisica"></ion-radio>
+              <ion-label>Pessoa Física</ion-label>
+            </ion-item>
+            <ion-item class="form-item radio-item" lines="none">
+              <ion-radio slot="start" value="juridica"></ion-radio>
+              <ion-label>Pessoa Jurídica</ion-label>
+            </ion-item>
+          </ion-radio-group>
+        </div>
       </ion-card-content>
     </ion-card>
 
+    <!-- Toggle (Switch) -->
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Toggle</ion-card-title>
+        <ion-card-title>Toggle (Switch)</ion-card-title>
+        <ion-card-subtitle>Ativar/desativar opções</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
-          <ion-label>Notificações</ion-label>
+        <ion-item class="form-item" lines="none">
+          <ion-label>
+            <h3>Modo Escuro</h3>
+            <p>Ativar tema escuro da aplicação</p>
+          </ion-label>
           <ion-toggle [(ngModel)]="toggleChecked"></ion-toggle>
         </ion-item>
-        <p>Estado: {{ toggleChecked ? 'Ativado' : 'Desativado' }}</p>
-      </ion-card-content>
-    </ion-card>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Radio</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-radio-group [(ngModel)]="selectedValue">
-          <ion-item>
-            <ion-radio value="option1">Opção 1</ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-radio value="option2">Opção 2</ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-radio value="option3">Opção 3</ion-radio>
-          </ion-item>
-        </ion-radio-group>
-        <p>Selecionado: {{ selectedValue }}</p>
-      </ion-card-content>
-    </ion-card>
+        <ion-item class="form-item" lines="none">
+          <ion-label>
+            <h3>Notificações</h3>
+            <p>Receber alertas em tempo real</p>
+          </ion-label>
+          <ion-toggle checked></ion-toggle>
+        </ion-item>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Select</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-item>
-          <ion-label>Cidade</ion-label>
-          <ion-select placeholder="Selecione">
-            <ion-select-option value="sp">São Paulo</ion-select-option>
-            <ion-select-option value="rj">Rio de Janeiro</ion-select-option>
-            <ion-select-option value="mg">Minas Gerais</ion-select-option>
-          </ion-select>
+        <ion-item class="form-item" lines="none">
+          <ion-label>
+            <h3>Sincronização Automática</h3>
+            <p>Sincronizar dados automaticamente</p>
+          </ion-label>
+          <ion-toggle disabled></ion-toggle>
         </ion-item>
       </ion-card-content>
     </ion-card>
 
+    <!-- Searchbar -->
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Range</ion-card-title>
+        <ion-card-title>Barra de Busca</ion-card-title>
+        <ion-card-subtitle>Campo de pesquisa</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
-          <ion-range [(ngModel)]="rangeValue" min="0" max="100">
-            <ion-label slot="start">0</ion-label>
-            <ion-label slot="end">100</ion-label>
-          </ion-range>
-        </ion-item>
-        <p>Valor: {{ rangeValue }}</p>
+        <ion-searchbar 
+          [(ngModel)]="searchText" 
+          placeholder="Buscar processos..."
+          animated>
+        </ion-searchbar>
+        <p *ngIf="searchText" class="search-result">Buscando por: <strong>{{ searchText }}</strong></p>
+
+        <ion-searchbar 
+          placeholder="Busca com ícone customizado"
+          searchIcon="document-text">
+        </ion-searchbar>
       </ion-card-content>
     </ion-card>
 
+    <!-- Range (Slider) -->
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Datetime</ion-card-title>
+        <ion-card-title>Range (Slider)</ion-card-title>
+        <ion-card-subtitle>Seleção de valores numéricos</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
-          <ion-label>Data</ion-label>
-          <ion-datetime-button datetime="datetime"></ion-datetime-button>
-        </ion-item>
+        <div class="form-group">
+          <div class="form-label">Faixa de preço: R$ {{ rangeValue }}</div>
+          <ion-item class="form-item" lines="none">
+            <ion-range 
+              [(ngModel)]="rangeValue" 
+              min="0" 
+              max="1000"
+              step="50"
+              pin="true"
+              color="primary">
+              <ion-label slot="start">R$ 0</ion-label>
+              <ion-label slot="end">R$ 1000</ion-label>
+            </ion-range>
+          </ion-item>
+        </div>
+
+        <div class="form-group">
+          <div class="form-label">Nível de prioridade</div>
+          <ion-item class="form-item" lines="none">
+            <ion-range 
+              min="1" 
+              max="5"
+              snaps="true"
+              ticks="true"
+              color="primary">
+              <ion-label slot="start">Baixa</ion-label>
+              <ion-label slot="end">Alta</ion-label>
+            </ion-range>
+          </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Date/Time -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Data e Hora</ion-card-title>
+        <ion-card-subtitle>Seleção de datas</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="form-group">
+          <label class="form-label">Data de Nascimento <span class="required">*</span></label>
+          <ion-item class="form-item" lines="none">
+            <ion-datetime-button datetime="datetime1"></ion-datetime-button>
+          </ion-item>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Data e Hora da Reunião</label>
+          <ion-item class="form-item" lines="none">
+            <ion-datetime-button datetime="datetime2"></ion-datetime-button>
+          </ion-item>
+        </div>
+
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
-            <ion-datetime id="datetime"></ion-datetime>
+            <ion-datetime 
+              id="datetime1"
+              presentation="date"
+              [preferWheel]="true">
+            </ion-datetime>
           </ng-template>
         </ion-modal>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime 
+              id="datetime2"
+              presentation="date-time"
+              [preferWheel]="true">
+            </ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Formulário Completo de Exemplo -->
+    <ion-card class="example-form-card">
+      <ion-card-header>
+        <ion-card-title>Exemplo: Formulário de Cadastro</ion-card-title>
+        <ion-card-subtitle>Formulário completo seguindo DS Gov</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <form>
+          <!-- Dados Pessoais -->
+          <div class="form-section">
+            <h3 class="form-section-title">Dados Pessoais</h3>
+            
+            <div class="form-group">
+              <label class="form-label">Nome Completo <span class="required">*</span></label>
+              <ion-item class="form-item" lines="none">
+                <ion-input placeholder="Digite seu nome completo"></ion-input>
+              </ion-item>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label class="form-label">CPF <span class="required">*</span></label>
+                <ion-item class="form-item" lines="none">
+                  <ion-input placeholder="000.000.000-00"></ion-input>
+                </ion-item>
+              </div>
+              <div class="form-group col-md-6">
+                <label class="form-label">Data de Nascimento <span class="required">*</span></label>
+                <ion-item class="form-item" lines="none">
+                  <ion-datetime-button datetime="datetime-cadastro"></ion-datetime-button>
+                </ion-item>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contato -->
+          <div class="form-section">
+            <h3 class="form-section-title">Contato</h3>
+            
+            <div class="form-group">
+              <label class="form-label">Email <span class="required">*</span></label>
+              <ion-item class="form-item" lines="none">
+                <ion-input type="email" placeholder="seu@email.com"></ion-input>
+              </ion-item>
+              <div class="form-helper">Enviaremos um email de confirmação</div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label class="form-label">Telefone <span class="required">*</span></label>
+                <ion-item class="form-item" lines="none">
+                  <ion-input type="tel" placeholder="(00) 00000-0000"></ion-input>
+                </ion-item>
+              </div>
+              <div class="form-group col-md-6">
+                <label class="form-label">Telefone Alternativo</label>
+                <ion-item class="form-item" lines="none">
+                  <ion-input type="tel" placeholder="(00) 00000-0000"></ion-input>
+                </ion-item>
+              </div>
+            </div>
+          </div>
+
+          <!-- Endereço -->
+          <div class="form-section">
+            <h3 class="form-section-title">Endereço</h3>
+            
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label class="form-label">CEP <span class="required">*</span></label>
+                <ion-item class="form-item" lines="none">
+                  <ion-input placeholder="00000-000"></ion-input>
+                </ion-item>
+              </div>
+              <div class="form-group col-md-8">
+                <label class="form-label">Logradouro <span class="required">*</span></label>
+                <ion-item class="form-item" lines="none">
+                  <ion-input placeholder="Rua, Avenida, etc"></ion-input>
+                </ion-item>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label class="form-label">Número <span class="required">*</span></label>
+                <ion-item class="form-item" lines="none">
+                  <ion-input placeholder="123"></ion-input>
+                </ion-item>
+              </div>
+              <div class="form-group col-md-5">
+                <label class="form-label">Complemento</label>
+                <ion-item class="form-item" lines="none">
+                  <ion-input placeholder="Apto, Bloco, etc"></ion-input>
+                </ion-item>
+              </div>
+              <div class="form-group col-md-4">
+                <label class="form-label">Bairro <span class="required">*</span></label>
+                <ion-item class="form-item" lines="none">
+                  <ion-input placeholder="Centro"></ion-input>
+                </ion-item>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label class="form-label">Cidade <span class="required">*</span></label>
+                <ion-item class="form-item" lines="none">
+                  <ion-input placeholder="São Paulo"></ion-input>
+                </ion-item>
+              </div>
+              <div class="form-group col-md-4">
+                <label class="form-label">UF <span class="required">*</span></label>
+                <ion-item class="form-item" lines="none">
+                  <ion-select placeholder="SP">
+                    <ion-select-option value="sp">SP</ion-select-option>
+                    <ion-select-option value="rj">RJ</ion-select-option>
+                    <ion-select-option value="mg">MG</ion-select-option>
+                    <ion-select-option value="df">DF</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </div>
+            </div>
+          </div>
+
+          <!-- Termos -->
+          <div class="form-section">
+            <ion-item class="form-item checkbox-item" lines="none">
+              <ion-checkbox slot="start"></ion-checkbox>
+              <ion-label class="ion-text-wrap">
+                Li e aceito os <a href="#">termos de uso</a> e <a href="#">política de privacidade</a> <span class="required">*</span>
+              </ion-label>
+            </ion-item>
+          </div>
+
+          <!-- Botões -->
+          <div class="form-actions">
+            <div class="button-group">
+              <ion-button fill="clear">
+                Cancelar
+              </ion-button>
+              <ion-button fill="outline">
+                <ion-icon slot="start" name="save"></ion-icon>
+                Salvar Rascunho
+              </ion-button>
+              <ion-button color="primary">
+                <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+                Finalizar Cadastro
+              </ion-button>
+            </div>
+          </div>
+        </form>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime 
+              id="datetime-cadastro"
+              presentation="date"
+              [preferWheel]="true">
+            </ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Boas Práticas -->
+    <ion-card class="best-practices-card">
+      <ion-card-header>
+        <ion-card-title>✓ Boas Práticas - Formulários DS Gov</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ul class="best-practices">
+          <li><strong>Labels claros:</strong> Sempre use labels descritivos para cada campo</li>
+          <li><strong>Campos obrigatórios:</strong> Marque com asterisco (*) vermelho</li>
+          <li><strong>Mensagens de ajuda:</strong> Use textos auxiliares para orientar o preenchimento</li>
+          <li><strong>Validação em tempo real:</strong> Mostre feedback imediato (sucesso/erro)</li>
+          <li><strong>Ícones de status:</strong> Use ícones para indicar sucesso (✓) ou erro (⚠)</li>
+          <li><strong>Agrupamento lógico:</strong> Organize campos em seções relacionadas</li>
+          <li><strong>Layout responsivo:</strong> Use grid para organizar campos em múltiplas colunas</li>
+          <li><strong>Mensagens de erro claras:</strong> Explique o que está errado e como corrigir</li>
+          <li><strong>Placeholder útil:</strong> Use exemplos de formato esperado</li>
+          <li><strong>Acessibilidade:</strong> Garanta navegação por teclado e leitores de tela</li>
+        </ul>
       </ion-card-content>
     </ion-card>
   </div>
