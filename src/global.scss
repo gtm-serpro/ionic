@@ -30,10 +30,9 @@
 @import url('https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css');
 
 /* === TEMA DS GOV === */
-
+@import "./theme/ds-gov-theme.scss";
 @import "./theme/ds-gov-buttons.scss";
 @import "./theme/ds-gov-forms.scss";
-@import "./theme/ds-gov-theme.scss";
 
 /* === ESTILOS GLOBAIS DS GOV === */
 
