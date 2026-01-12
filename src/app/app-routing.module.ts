@@ -15,10 +15,6 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'components-demo',
-    loadChildren: () => import('./components-demo/components-demo.module').then( m => m.ComponentsDemoPageModule)
-  },
 ];
 
 @NgModule({
