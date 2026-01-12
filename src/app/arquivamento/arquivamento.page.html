@@ -1,0 +1,224 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Arquivamento de Processo(s)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-container">
+    <div class="br-breadcrumb">
+      <a routerLink="/home">Início</a>
+      <ion-icon name="chevron-forward"></ion-icon>
+      <a routerLink="/processos">Processos</a>
+      <ion-icon name="chevron-forward"></ion-icon>
+      <span>Arquivamento</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Card Principal -->
+    <ion-card>
+      <!-- Card Header -->
+      <div class="card-header">
+        <ion-icon name="archive" class="header-icon"></ion-icon>
+        <h1>Arquivamento de Processo(s)</h1>
+      </div>
+
+      <ion-card-content>
+        <!-- Badge de Seleção -->
+        <div class="selection-badge">
+          <ion-icon name="checkmark-circle"></ion-icon>
+          <span><strong>3 processos</strong> selecionados para arquivamento</span>
+        </div>
+
+        <!-- Formulário -->
+        <form #arquivamentoForm>
+          <!-- Trabalho Realizado -->
+          <div class="form-group">
+            <label class="form-label required">Você trabalhou a atividade?</label>
+            <ion-radio-group [(ngModel)]="trabalhoRealizado" name="trabalhoRealizado">
+              <div class="radio-group-horizontal">
+                <ion-item class="form-item radio-item" lines="none">
+                  <ion-radio value="sim" slot="start"></ion-radio>
+                  <ion-label>Sim</ion-label>
+                </ion-item>
+                <ion-item class="form-item radio-item" lines="none">
+                  <ion-radio value="nao" slot="start"></ion-radio>
+                  <ion-label>Não</ion-label>
+                </ion-item>
+              </div>
+            </ion-radio-group>
+          </div>
+
+          <!-- Motivo (condicional) -->
+          <div class="form-group" *ngIf="trabalhoRealizado === 'nao'">
+            <label class="form-label required">Por que você não trabalhou a atividade?</label>
+            <ion-item class="form-item" lines="none">
+              <ion-select [(ngModel)]="motivoNaoTrabalhou" name="motivoNaoTrabalhou" placeholder="Selecione o motivo">
+                <ion-select-option value="falta-info">Falta de informações necessárias</ion-select-option>
+                <ion-select-option value="redistribuida">Atividade redistribuída</ion-select-option>
+                <ion-select-option value="outros">Outros motivos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+
+          <!-- Atividade Concluída -->
+          <div class="form-group">
+            <label class="form-label required">Atividade concluída neste mês?</label>
+            <ion-radio-group [(ngModel)]="atividadeConcluida" name="atividadeConcluida">
+              <div class="radio-group-horizontal">
+                <ion-item class="form-item radio-item" lines="none">
+                  <ion-radio value="sim" slot="start"></ion-radio>
+                  <ion-label>Sim</ion-label>
+                </ion-item>
+                <ion-item class="form-item radio-item" lines="none">
+                  <ion-radio value="nao" slot="start"></ion-radio>
+                  <ion-label>Não</ion-label>
+                </ion-item>
+              </div>
+            </ion-radio-group>
+            <div class="form-helper">
+              Se sim, informe quantas horas foram dedicadas para cálculo do FRA
+            </div>
+          </div>
+
+          <!-- Horas FRA (condicional) -->
+          <div class="form-group" *ngIf="atividadeConcluida === 'sim'">
+            <label class="form-label required">Distribuição de horas</label>
+            <div class="hours-selector">
+              <button 
+                type="button" 
+                class="hour-option" 
+                *ngFor="let option of horasOpcoes"
+                [class.selected]="horasSelecionadas === option.value"
+                (click)="selecionarHoras(option.value)">
+                {{ option.label }}
+              </button>
+            </div>
+            
+            <!-- Input customizado -->
+            <div class="custom-hours" *ngIf="horasSelecionadas === 'custom'">
+              <label class="form-label">Horas customizadas</label>
+              <ion-item class="form-item" lines="none">
+                <ion-input 
+                  type="number" 
+                  [(ngModel)]="horasCustomizadas" 
+                  name="horasCustomizadas"
+                  placeholder="Digite o número de horas"
+                  min="0"
+                  max="24">
+                </ion-input>
+              </ion-item>
+            </div>
+          </div>
+
+          <!-- Motivo do Arquivamento -->
+          <div class="form-group">
+            <label class="form-label required">Motivo do Arquivamento</label>
+            <ion-item class="form-item" lines="none">
+              <ion-textarea 
+                [(ngModel)]="motivoArquivamento"
+                name="motivoArquivamento"
+                rows="4"
+                placeholder="Descreva o motivo do arquivamento...">
+              </ion-textarea>
+            </ion-item>
+            <div class="form-helper">
+              Mínimo de 20 caracteres
+            </div>
+
+            <!-- Exemplos de Texto -->
+            <div class="text-examples">
+              <div class="example-label">
+                <ion-icon name="lightbulb"></ion-icon>
+                Exemplos de texto:
+              </div>
+              <div class="example-item" *ngFor="let exemplo of exemplosTexto">
+                <span>{{ exemplo }}</span>
+                <ion-button fill="clear" size="small" (click)="copiarTexto(exemplo)">
+                  <ion-icon name="copy"></ion-icon>
+                  Copiar
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Card de Alertas -->
+    <ion-card class="alerts-card">
+      <div class="alerts-header">
+        <h2>
+          <ion-icon name="alert-circle"></ion-icon>
+          Alertas de Validação
+        </h2>
+        <div class="alerts-toggle">
+          <ion-segment [(ngModel)]="alertsView">
+            <ion-segment-button value="mensagem">
+              <ion-label>Por mensagem</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="processo">
+              <ion-label>Por processo</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+      </div>
+
+      <div class="alerts-list">
+        <div class="alert-item" *ngFor="let alerta of alertas">
+          <div class="alert-item-header" (click)="toggleAlert(alerta)">
+            <div class="alert-item-info">
+              <ion-badge [color]="alerta.tipo === 'error' ? 'danger' : 'warning'">
+                {{ alerta.tipo === 'error' ? 'Impeditivo' : 'Atenção' }}
+              </ion-badge>
+              <span><strong>{{ alerta.titulo }}</strong> - {{ alerta.processos.length }} processo(s)</span>
+            </div>
+            <ion-icon 
+              [name]="alerta.expandido ? 'chevron-up' : 'chevron-down'"
+              class="toggle-icon">
+            </ion-icon>
+          </div>
+          
+          <div class="alert-item-details" [class.expanded]="alerta.expandido">
+            <div class="processo-item" *ngFor="let processo of alerta.processos; last as isLast">
+              <strong>{{ processo.numero }}</strong><br>
+              <small>{{ processo.descricao }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-card>
+
+    <!-- Mensagem de Ações Automáticas -->
+    <div class="info-message">
+      <ion-icon name="information-circle" class="info-icon"></ion-icon>
+      <div class="info-content">
+        <div class="info-title">Ações automáticas pós-arquivamento</div>
+        <div class="info-text">
+          Ao confirmar o arquivamento, o sistema executará automaticamente:
+          priorização do processo, envio ao Portal CARF e COMPROT,
+          atualização de palavras-chave e andamento no SEI.
+        </div>
+      </div>
+    </div>
+
+    <!-- Botões de Ação -->
+    <div class="form-actions">
+      <div class="button-group">
+        <ion-button fill="clear" (click)="cancelar()">
+          <ion-icon slot="start" name="close"></ion-icon>
+          Cancelar
+        </ion-button>
+        <ion-button color="primary" (click)="confirmarArquivamento()">
+          <ion-icon slot="start" name="archive"></ion-icon>
+          Confirmar Arquivamento
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

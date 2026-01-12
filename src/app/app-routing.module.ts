@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./components-showcase/components-showcase.module').then(m => m.ComponentsShowcasePageModule)
   },
   {
+    path: 'arquivamento',
+    loadChildren: () => import('./arquivamento/arquivamento.module').then(m => m.ArquivamentoPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
