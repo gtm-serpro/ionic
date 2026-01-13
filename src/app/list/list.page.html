@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Processos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item
+      *ngFor="let processo of processos"
+      button
+      detail
+    >
+      <ion-icon
+        slot="start"
+        [name]="getIcon(processo.status)"
+        [color]="getColor(processo.status)"
+      ></ion-icon>
+
+      <ion-label>
+        <h2>{{ processo.numero }}</h2>
+        <p>{{ processo.assunto }}</p>
+
+        <ion-badge
+          *ngIf="processo.observacao"
+          color="warning"
+        >
+          Observação
+        </ion-badge>
+      </ion-label>
+
+      <ion-chip
+        slot="end"
+        [color]="getColor(processo.status)"
+      >
+        {{ processo.status }}
+      </ion-chip>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
