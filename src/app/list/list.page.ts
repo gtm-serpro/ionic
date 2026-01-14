@@ -1,61 +1,53 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Processo } from '../models/processo.model';
+import { ProcessoService } from '../services/processo.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.page.html',
   styleUrls: ['./list.page.scss'],
-  standalone: false
+  standalone:false
 })
 export class ListPage implements OnInit {
+  processosAlta: Processo[] = [];
+  processosMedia: Processo[] = [];
+  processosBaixa: Processo[] = [];
+  totalPendentes = 0;
 
-  processos = [
-    {
-      numero: '0001234-56.2024.1.00.0000',
-      assunto: 'Contrato de Prestação de Serviços',
-      status: 'Assinar',
-      observacao: true
-    },
-    {
-      numero: '0009876-54.2024.1.00.0000',
-      assunto: 'Análise Técnica',
-      status: 'Editar',
-      observacao: false
-    },
-    {
-      numero: '0004567-89.2024.1.00.0000',
-      assunto: 'Parecer Jurídico',
-      status: 'Assinado',
-      observacao: false
-    }
-  ];
+  constructor(
+    private router: Router,
+    private processoService: ProcessoService
+  ) {}
 
-  constructor() {}
-
-  ngOnInit() {}
-
-  getIcon(status: string): string {
-    switch (status) {
-      case 'Assinar':
-        return 'create-outline';
-      case 'Editar':
-        return 'document-text-outline';
-      case 'Assinado':
-        return 'checkmark-done-outline';
-      default:
-        return 'folder-outline';
-    }
+  ngOnInit() {
+    this.carregarProcessos();
   }
 
-  getColor(status: string): string {
-    switch (status) {
-      case 'Assinar':
-        return 'danger';
-      case 'Editar':
-        return 'tertiary';
-      case 'Assinado':
-        return 'success';
-      default:
-        return 'medium';
-    }
+  carregarProcessos() {
+    this.processoService.getProcessos().subscribe(
+      processos => {
+        this.processosAlta = processos.filter(p => p.urgencia === 'alta');
+        this.processosMedia = processos.filter(p => p.urgencia === 'media');
+        this.processosBaixa = processos.filter(p => p.urgencia === 'baixa');
+        this.totalPendentes = processos.length;
+      }
+    );
+  }
+
+  abrirDetalhes(processo: Processo) {
+    this.router.navigate(['/processo', processo.id]);
+  }
+
+  assinar(processo: Processo) {
+    console.log('Assinar:', processo.numero);
+  }
+
+  liberar(processo: Processo) {
+    console.log('Liberar:', processo.numero);
+  }
+
+  arquivar(processo: Processo) {
+    console.log('Arquivar:', processo.numero);
   }
 }

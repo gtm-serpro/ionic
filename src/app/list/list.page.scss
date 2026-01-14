@@ -1,11 +1,26 @@
-ion-item {
-  --padding-start: 16px;
+ion-content {
+  --overflow: hidden;
 }
 
-ion-badge {
-  margin-top: 6px;
+.accordion-group-expand-compact {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px - 60px);
+  overflow: hidden;
 }
 
-ion-chip {
-  text-transform: capitalize;
+ion-accordion.accordion-collapsed {
+  flex: 0 0 83px;
+  overflow: hidden;
+}
+
+ion-accordion.accordion-expanded {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  
+  ion-list {
+    height: 100%;
+    overflow-y: auto;
+  }
 }

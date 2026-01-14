@@ -1,42 +1,162 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>Processos</ion-title>
+    <ion-title>Processos Pendentes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="header-info">
+    <p>{{ totalPendentes }} documentos para liberar ou assinar</p>
+  </div>
 
-  <ion-list>
-    <ion-item
-      *ngFor="let processo of processos"
-      button
-      detail
-    >
-      <ion-icon
-        slot="start"
-        [name]="getIcon(processo.status)"
-        [color]="getColor(processo.status)"
-      ></ion-icon>
+  <ion-accordion-group [multiple]="true" [value]="['alta', 'media', 'baixa']">
+    
+    <!-- Urgência Alta -->
+    <ion-accordion value="alta">
+      <ion-item slot="header" color="light">
+        <ion-icon name="alert-circle" color="danger" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Urgente</h2>
+          <p>{{ processosAlta.length }} processos</p>
+        </ion-label>
+      </ion-item>
+      
+      <ion-list slot="content">
+        <ion-item-sliding *ngFor="let processo of processosAlta">
+          <ion-item-options side="start">
+            <ion-item-option color="success" *ngIf="processo.temAssinatura" (click)="assinar(processo)">
+              Assinar
+            </ion-item-option>
+            <ion-item-option color="primary" *ngIf="processo.temLiberacao" (click)="liberar(processo)">
+              Liberar
+            </ion-item-option>
+          </ion-item-options>
 
-      <ion-label>
-        <h2>{{ processo.numero }}</h2>
-        <p>{{ processo.assunto }}</p>
+          <ion-item (click)="abrirDetalhes(processo)">
+            <div class="item-content">
+              <div class="urgencia urgencia-alta"></div>
+              
+              <div class="info">
+                <h3>{{ processo.numero }}</h3>
+                <p>{{ processo.interessado }}</p>
+                <span class="data">{{ processo.dataDistribuicao | date:'dd/MM/yyyy' }}</span>
+              </div>
 
-        <ion-badge
-          *ngIf="processo.observacao"
-          color="warning"
-        >
-          Observação
-        </ion-badge>
-      </ion-label>
+              <div class="icones">
+                <ion-icon *ngIf="processo.icones?.trancado" name="lock-closed"></ion-icon>
+                <ion-icon *ngIf="processo.icones?.assinaturaAlerta" name="create" color="warning"></ion-icon>
+                <ion-icon *ngIf="processo.icones?.envelope" name="mail"></ion-icon>
+                <ion-icon *ngIf="processo.icones?.file" name="document"></ion-icon>
+              </div>
+            </div>
+          </ion-item>
 
-      <ion-chip
-        slot="end"
-        [color]="getColor(processo.status)"
-      >
-        {{ processo.status }}
-      </ion-chip>
-    </ion-item>
-  </ion-list>
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="arquivar(processo)">
+              Arquivar
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-accordion>
 
+    <!-- Urgência Média -->
+    <ion-accordion value="media">
+      <ion-item slot="header" color="light">
+        <ion-icon name="warning" color="warning" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Normal</h2>
+          <p>{{ processosMedia.length }} processos</p>
+        </ion-label>
+      </ion-item>
+      
+      <ion-list slot="content">
+        <ion-item-sliding *ngFor="let processo of processosMedia">
+          <ion-item-options side="start">
+            <ion-item-option color="success" *ngIf="processo.temAssinatura" (click)="assinar(processo)">
+              Assinar
+            </ion-item-option>
+            <ion-item-option color="primary" *ngIf="processo.temLiberacao" (click)="liberar(processo)">
+              Liberar
+            </ion-item-option>
+          </ion-item-options>
+
+          <ion-item (click)="abrirDetalhes(processo)">
+            <div class="item-content">
+              <div class="urgencia urgencia-media"></div>
+              
+              <div class="info">
+                <h3>{{ processo.numero }}</h3>
+                <p>{{ processo.interessado }}</p>
+                <span class="data">{{ processo.dataDistribuicao | date:'dd/MM/yyyy' }}</span>
+              </div>
+
+              <div class="icones">
+                <ion-icon *ngIf="processo.icones?.trancado" name="lock-closed"></ion-icon>
+                <ion-icon *ngIf="processo.icones?.assinaturaAlerta" name="create" color="warning"></ion-icon>
+                <ion-icon *ngIf="processo.icones?.envelope" name="mail"></ion-icon>
+                <ion-icon *ngIf="processo.icones?.file" name="document"></ion-icon>
+              </div>
+            </div>
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="arquivar(processo)">
+              Arquivar
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-accordion>
+
+    <!-- Urgência Baixa -->
+    <ion-accordion value="baixa">
+      <ion-item slot="header" color="light">
+        <ion-icon name="time" color="success" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Sem pressa</h2>
+          <p>{{ processosBaixa.length }} processos</p>
+        </ion-label>
+      </ion-item>
+      
+      <ion-list slot="content">
+        <ion-item-sliding *ngFor="let processo of processosBaixa">
+          <ion-item-options side="start">
+            <ion-item-option color="success" *ngIf="processo.temAssinatura" (click)="assinar(processo)">
+              Assinar
+            </ion-item-option>
+            <ion-item-option color="primary" *ngIf="processo.temLiberacao" (click)="liberar(processo)">
+              Liberar
+            </ion-item-option>
+          </ion-item-options>
+
+          <ion-item (click)="abrirDetalhes(processo)">
+            <div class="item-content">
+              <div class="urgencia urgencia-baixa"></div>
+              
+              <div class="info">
+                <h3>{{ processo.numero }}</h3>
+                <p>{{ processo.interessado }}</p>
+                <span class="data">{{ processo.dataDistribuicao | date:'dd/MM/yyyy' }}</span>
+              </div>
+
+              <div class="icones">
+                <ion-icon *ngIf="processo.icones?.trancado" name="lock-closed"></ion-icon>
+                <ion-icon *ngIf="processo.icones?.assinaturaAlerta" name="create" color="warning"></ion-icon>
+                <ion-icon *ngIf="processo.icones?.envelope" name="mail"></ion-icon>
+                <ion-icon *ngIf="processo.icones?.file" name="document"></ion-icon>
+              </div>
+            </div>
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="arquivar(processo)">
+              Arquivar
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-accordion>
+
+  </ion-accordion-group>
 </ion-content>
